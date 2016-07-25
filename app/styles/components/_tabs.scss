@@ -1,0 +1,66 @@
+.tonal-tabs{
+    display: none;
+    width: 100%;
+
+    @include breakpoint(medium down) {
+        position: fixed;
+        display: block;
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        z-index: 100;
+        color: $black;
+        @include gradient(top, $tabs-bg1, $tabs-bg2);
+
+        ul{
+            margin: 0;
+        }
+
+        li:first-child, li:last-child{
+            box-shadow: inset 1px 0px $shadow-light, inset -1px 0px $shadow-light;
+        }
+        li{
+            display: inline-block;
+            padding: 10px 0;
+            width: (100% / $number-of-tabs);
+            text-align: center;
+            box-shadow: inset -1px 0px $shadow-light;
+            background: transparent;
+            @include transition(all .3s);
+
+            .fa{
+                display: block;
+                font-size: 32px;
+                padding-bottom: 1px;
+            }
+
+            a{
+                font-family: $header-font;
+                font-size: 12px;
+                font-weight: 300;
+                letter-spacing: 1px;
+                text-decoration: none;
+                color: $inactive-light;
+                outline: none;
+            }
+
+            &:hover{
+                .fa, .link-name{
+                    color: $tabs-color-hover1;
+                    @include transition(all .3s);
+                }
+                background: $tabs-bg-hover;
+                cursor: pointer;
+                @include transition(all .3s);
+            }
+        }
+
+        @include breakpoint(small down) {
+            .link-name{
+                display: none;
+            }
+
+        }
+    }
+}
